@@ -1,0 +1,41 @@
+<div class="container mt-5 justify-content-center ">
+  <div class="desc">
+    <h6 class="m-1">Page {{page}} of {{response?.data?.totalPages}} </h6>
+    <div style="display: inline-flex">
+      <h6 class="m-1"> Size: </h6>
+      <select (change)="handleDropdownChange($event)" class="mx-1">
+        <option value="3" selected>3</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
+  </div>
+  <table class="table mt-3 border border-dark text-white">
+    <thead>
+    <tr>
+      <th scope="col">Book Id</th>
+      <th scope="col">Book Title</th>
+      <th scope="col">Author Name</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Price</th>
+      <th scope="col">Availability</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of bookList">
+      <th scope="row">{{book.id}}</th>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.genre}}</td>
+      <td>{{book.price}}</td>
+      <td>{{book.availability}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="btn-div">
+    <button class="btn btn-primary m-2" [disabled]="response?.data?.first" (click)="previousPage()">Previous</button>
+    <button class="btn btn-primary" [disabled]="response?.data?.last" (click)="nextPage()">Next</button>
+  </div>
+</div>
+

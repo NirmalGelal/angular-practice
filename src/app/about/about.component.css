@@ -1,0 +1,10 @@
+.btn-div{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.desc{
+  display: flex;
+  justify-content: space-between;
+}
